@@ -7,10 +7,7 @@ $db_password = getenv('password');
 $db_name = getenv('name');
 $con = mysqli_connect($host, $db_user, $db_password, $db_name);
 
-$sql = "CREATE TABLE users (
-	username VARCHAR(50) PRIMARY KEY, 
-	password VARCHAR(30) NOT NULL
-)";
+$sql = "insert into users (username, password) values (Laza, lazalaza)";
 
 $result = mysqli_query($con, $sql);
 
