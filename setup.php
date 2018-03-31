@@ -20,6 +20,6 @@ if ($result) {
     echo "Error creating table: " . $conn->error;
 }
 
-$conn->close();
+mysqli_close($con);
 
 ?>
