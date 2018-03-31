@@ -12,7 +12,9 @@ $sql = "CREATE TABLE users (
 	password VARCHAR(30) NOT NULL
 )";
 
-if ($conn->query($sql) === TRUE) {
+$result = mysqli_query($con, $sql);
+
+if ($result) {
     echo "Table users created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
