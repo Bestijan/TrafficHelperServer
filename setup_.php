@@ -89,12 +89,13 @@ if ($con){
 	file_put_contents($path.'1.jpg', $decoded);
 	*/
 	
-	/*
+	
 	$sql = "CREATE TABLE user_img (
             ID int(11) PRIMARY KEY, 
             img VARCHAR
             )";
-	*/
+	
+	/*
 	$sql = "DELETE FROM users";
 	$result = mysqli_query($con, $sql);
         if ($result) {
@@ -102,6 +103,7 @@ if ($con){
         } else {
             echo "Error : " . mysqli_error($con);
         }
+	*/
 	
 }
 else echo "Connection failed";
