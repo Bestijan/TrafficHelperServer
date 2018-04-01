@@ -94,6 +94,14 @@ if ($con){
             ID int(11) PRIMARY KEY, 
             img VARCHAR
             )";
+
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "Event set successfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
 	
 	/*
 	$sql = "DELETE FROM users";
