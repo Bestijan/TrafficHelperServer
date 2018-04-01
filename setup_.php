@@ -14,7 +14,7 @@ $result = mysqli_query($con, $sql);
 if ($result) {
     echo "Table users created successfully";
 } else {
-    echo "Error creating table: " . $conn->error;
+    echo "Error creating table: " . mysqli_error($con);
 }
 mysqli_close($con);
 ?>
