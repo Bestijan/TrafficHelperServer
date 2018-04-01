@@ -26,10 +26,20 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']) && i
 		$sql = "insert into users (username, password) values ('".$username."', '".$password."')";
 	
 		$result = mysqli_query($con, $sql);
-	
-		$decoded = base64_decode($img);
-		file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
-		$json["result"] = "ok";
+		
+		if ($result)
+		{
+			$sql = "insert into user_img (ID, img) values ('".$username."', '".$img."')";
+				
+			$result = mysqli_query($con, $sql);
+			
+			//$decoded = base64_decode($img);
+			//file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
+			if ($result)
+				$json["result"] = "ok";
+			else $json["result"] = mysqli_error($con);
+		}
+		else $json["result"] = mysqli_error($con);
 	}
 	mysqli_close($con);
 }
