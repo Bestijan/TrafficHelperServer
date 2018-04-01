@@ -14,7 +14,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']))
 	
 	$result = mysqli_query($con, $sql)->fetch_row()[0];	
 	
-	$path = './opt/app-root/src/img/img_users/'.$username.'.JPEG';
+	$path = './../opt/app-root/src/img/img_users/'.$username.'.JPEG';
 	
 	if ($result == '1'){	
 		$jpg  = file_get_contents("$path");
