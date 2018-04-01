@@ -84,7 +84,7 @@ if ($con){
 	
 	$decoded = base64_decode($img);
 	
-	$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/cache/lang/';
+	$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/opt/app-root/data/';
 	
 	file_put_contents($path.'1.jpg', $decoded);
 }
