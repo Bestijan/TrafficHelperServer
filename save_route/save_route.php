@@ -5,6 +5,8 @@ require_once dirname(__FILE__).'/../init.php';
 $json = array();
 $json["id"] = "save_route";
 
+$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
+
 if (isset($_POST) && isset($_POST['username']) 
 	&& isset($_POST['lat_s']) && isset($_POST['lon_s']) 
 	&& isset($_POST['lat_d']) && isset($_POST['lon_d'])  
@@ -40,7 +42,7 @@ if (isset($_POST) && isset($_POST['username'])
 			mysqli_query($con, $sql);
 		}
 		$decoded = base64_decode($img);
-		file_put_contents('./../img/img_routes/'.$username.'_'.$route_id.'.JPEG', $decoded);
+		file_put_contents($relative_path.'img_routes/'.$username.'_'.$route_id.'.jpg', $decoded);
 	}
 	else {
 		$json["result"] = mysqli_error($con);
