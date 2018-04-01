@@ -13,16 +13,24 @@ if (isset($_POST) && isset($_POST['id']) && isset($_POST['username']))
 	
 	$result = mysqli_query($con, $sql);
 
-	$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_my_places/'.$username.'_'.$id.'.jpg';
-	unlink($path);
-
-	if ($result){	
-		$sql = "delete from markers where ID_place_event = $id";
+	//$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_my_places/'.$username.'_'.$id.'.jpg';
+	//unlink($path);
+	if ($result)
+		$ID = $username.'_'.$id;
+		$sql = "delete from place_event_img where ID = '".$ID."'";	
 		$result = mysqli_query($con, $sql);
-		if($result)
-			$json["result"] = "ok";
+
+		if ($result){	
+			$sql = "delete from markers where ID_place_event = $id";
+			$result = mysqli_query($con, $sql);
+			if($result)
+				$json["result"] = "ok";
+		}
+		else{
+			$json["result"] = mysqli_error($con);
+		}
 	}
-	else{
+	else {
 		$json["result"] = mysqli_error($con);
 	}
 	mysqli_close($con);
