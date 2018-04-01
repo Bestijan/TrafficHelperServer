@@ -17,7 +17,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']))
 	//$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_users/'.$username.'.jpg';
 	
 	if ($result == '1'){	
-		$sql = "select img from user_img where username = '$username'"
+		$sql = "select img from user_img where username = '$username'";
 		//$jpg  = file_get_contents("$path");
 			
 		$jpg = mysqli_query($con, $sql)->fetch_row()[0];
