@@ -41,7 +41,16 @@ if ($con){
 
 	//$sql = "GRANT ALL PRIVILEGES ON mydb.$db_name TO '$db_user'@'$host' IDENTIFIED BY '$db_password'";
 	
-	$sql = "UPDATE EVENT `delete_event` 
+	$sql = "DROP EVENT `delete_event`"; 
+	$result = mysqli_query($con, $sql);
+	
+	if ($result) {
+            echo "DROPED succesfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
+	$sql = "CREATE EVENT `delete_event` 
 		ON SCHEDULE EVERY 1 MINUTE 
 		STARTS '2018-03-30 00:00:00' 
 		ENDS '2028-11-22 00:00:00' 
@@ -51,12 +60,12 @@ if ($con){
 	
         $result = mysqli_query($con, $sql);
         if ($result) {
-            echo "Privilages set successfully";
+            echo "Event set successfully";
         } else {
-            echo "Error creating table: " . mysqli_error($con);
+            echo "Error : " . mysqli_error($con);
         }
 }
-else echo "PRC";
+else echo "Connection failed";
 
 
 mysqli_close($con);
