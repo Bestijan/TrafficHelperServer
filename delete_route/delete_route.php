@@ -27,7 +27,7 @@ if (isset($_POST) && isset($_POST['id']) && isset($_POST['username']))
 			
 			$sql = "delete from markers where ID_route = $id";
 			$result = mysqli_query($con, $sql);
-			$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_users/'.$username.'_'.$id.'.jpg';
+			$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_routes/'.$username.'_'.$id.'.jpg';
 			unlink($path);
 		
 			if ($result)
