@@ -12,7 +12,7 @@ if (isset($_POST) && isset($_POST['username']))
 	$json["id"] = "update_account";
 	$json["result"] = "ok";
 	
-	$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
+	//$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
 	
 	if (isset($_POST['new_username'])){
 		
@@ -38,18 +38,29 @@ if (isset($_POST) && isset($_POST['username']))
 			$res_new_username = mysqli_query($con, $sql);
 			if ($res_new_username)
 			{
-				$old_path = $relative_path.'img_users/'.$username.'.jpg';
-				$new_path = $relative_path.'img_users/'.$new_username.'.jpg';
-				rename($old_path, $new_path);
+				//$old_path = $relative_path.'img_users/'.$username.'.jpg';
+				//$new_path = $relative_path.'img_users/'.$new_username.'.jpg';
+				//rename($old_path, $new_path);
+				
+				$ID = $new_username.'_'.$route_id;
+				$ID_old = $username.'_'.$route_id;
+				$sql = "update user_img set ID = '".$ID."' where ID = '".$ID_old."'";
+				if (!mysqli_query($con, $sql))
+					$json["result"] = mysqli_error($con);
 				
 				$sql = "select * from place_event where Username = '$username'";
 				$res_get_places = mysqli_query($con, $sql);
 				
 				if($res_get_places)
 				while ($res_places = mysqli_fetch_assoc($res_get_places)){
-					$old_path = $relative_path.'img_my_places/'.$username.'_'.$res_places["ID"].'.jpg';
-					$new_path = $relative_path.'img_my_places/'.$new_username.'_'.$res_places["ID"].'.jpg';
-					rename($old_path, $new_path);
+					//$old_path = $relative_path.'img_my_places/'.$username.'_'.$res_places["ID"].'.jpg';
+					//$new_path = $relative_path.'img_my_places/'.$new_username.'_'.$res_places["ID"].'.jpg';
+					//rename($old_path, $new_path);
+					$ID = $new_username.'_'.$res_places["ID"];
+					$ID_old = $username.'_'.$res_places["ID"];
+					$sql = "update place_event_img set ID = '".$ID."' where ID = '".$ID_old."'";
+					if (!mysqli_query($con, $sql))
+						$json["result"] = mysqli_error($con);
 				}
 				else $json["result"] = mysqli_error($con);
 				
@@ -58,9 +69,15 @@ if (isset($_POST) && isset($_POST['username']))
 				
 				if ($res_get_routes)
 				while ($res_routes = mysqli_fetch_assoc($res_get_routes)){
-					$old_path = $relative_path.'img_routes/'.$username.'_'.$res_routes["ID"].'.jpg';
-					$new_path = $relative_path.'img_routes/'.$new_username.'_'.$res_routes["ID"].'.jpg';
-					rename($old_path, $new_path);
+					//$old_path = $relative_path.'img_routes/'.$username.'_'.$res_routes["ID"].'.jpg';
+					//$new_path = $relative_path.'img_routes/'.$new_username.'_'.$res_routes["ID"].'.jpg';
+					//rename($old_path, $new_path);
+					
+					$ID = $new_username.'_'.$res_routes["ID"];
+					$ID_old = $username.'_'.$res_routes["ID"];
+					$sql = "update route_img set ID = '".$ID."' where ID = '".$ID_old."'";
+					if (!mysqli_query($con, $sql))
+						$json["result"] = mysqli_error($con);
 				}
 				else $json["result"] = mysqli_error($con);
 				
@@ -106,16 +123,20 @@ if (isset($_POST) && isset($_POST['username']))
 		
 		$username_ = $_POST['username'];
 		
-		$path = $relative_path.'img_users/'.$username_.'.jpg';
-		unlink($path);
+		//$path = $relative_path.'img_users/'.$username_.'.jpg';
+		//unlink($path);
 	
 		if (isset($_POST['new_username'])){
-			$new_username = $_POST['new_username'];
-			file_put_contents($relative_path.'img_users/'.$new_username.'.jpg', $decoded);
+			$sql = "update user_img set ID = '".$_POST['new_username']."', img = ID = '".$_POST['pic']."' where ID = '".$_POST['username']."'";
+			if (!mysqli_query($con, $sql))
+				$json["result"] = mysqli_error($con);
 		}
 		else {
-			$username_ = $_POST['username'];
-			file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
+			//$username_ = $_POST['username'];
+			//file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
+			$sql = "update user_img set img = '".$_POST['pic']."' where ID = '".$_POST['username']."'";
+			if (!mysqli_query($con, $sql))
+				$json["result"] = mysqli_error($con);
 		}
 	}
 	
