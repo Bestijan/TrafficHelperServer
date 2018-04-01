@@ -39,7 +39,7 @@ if ($con){
 	
 	//$sql = "SET GLOBAL event_scheduler = ON";
 	
-	$sql = "GRANT ALL PRIVILEGES ON database_name.$db_name TO '$db_user'@'$host'";
+	$sql = "SELECT * FROM markers";
 	
         $result = mysqli_query($con, $sql);
         if ($result) {
