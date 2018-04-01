@@ -4,6 +4,7 @@ require_once dirname(__FILE__).'/../init.php';
 
 $json = array();
 $json["id"] = "delete_route";
+$json["result"] = "ok";
 
 if (isset($_POST) && isset($_POST['id']) && isset($_POST['username']))
 {
@@ -27,11 +28,18 @@ if (isset($_POST) && isset($_POST['id']) && isset($_POST['username']))
 			
 			$sql = "delete from markers where ID_route = $id";
 			$result = mysqli_query($con, $sql);
-			$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_routes/'.$username.'_'.$id.'.jpg';
-			unlink($path);
+			
+			//$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_routes/'.$username.'_'.$id.'.jpg';
+			//unlink($path);
 		
-			if ($result)
-				$json["result"] = "ok";	
+			if ($result){
+				$ID = $username.'_'.$id;
+				$sql = "delete from route_img where ID = '".$ID."'";	
+				$result = mysqli_query($con, $sql);
+				if (!$result)
+					$json["result"] = mysqli_error($con);
+			}
+			else $json["result"] = mysqli_error($con);
 		}
 		else $json["result"] = mysqli_error($con);
 	}
