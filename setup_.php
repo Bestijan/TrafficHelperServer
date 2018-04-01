@@ -18,7 +18,7 @@ if ($con){
 	    Lon double
             )";
 	*/
-	
+	/*
 	$sql = "CREATE TABLE routes (
             ID int(11) PRIMARY KEY AUTO_INCREMENT, 
             Username VARCHAR(50) NOT NULL,
@@ -27,10 +27,18 @@ if ($con){
 	    Lat_d double,
 	    Lon_d double
             )";
+	*/
+	
+	$sql = "CREATE TABLE markers (
+            ID_route int(11), 
+            ID_place_event int(11),
+	    PRIMARY KEY (ID_route, ID_place_event)
+            )";
+	
 	
         $result = mysqli_query($con, $sql);
         if ($result) {
-            echo "Table routes created successfully";
+            echo "Table markers created successfully";
         } else {
             echo "Error creating table: " . mysqli_error($con);
         }
