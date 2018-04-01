@@ -13,7 +13,7 @@ if (isset($_POST) && isset($_POST['username']))
 	$result = mysqli_query($con, $sql);
 
 	if ($result){	
-		$path = './../img/img_users/'.$username.'.JPEG';
+		$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_users/'.$username.'.jpg';
 		unlink($path);
 		
 		$sql = "select * from routes where Username = '$username'";
@@ -26,13 +26,13 @@ if (isset($_POST) && isset($_POST['username']))
 			
 			if ($res_get_place_event){
 				while ($res_routes = mysqli_fetch_assoc($res_get_routes)){
-					$path = './../img/img_routes/'.$username.'_'.$res_routes["ID"].'.JPEG';
+					$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_users/'.$username.'_'.$res_routes["ID"].'.jpg';
 					unlink($path);
 			
 					while ($res_place_event = mysqli_fetch_assoc($res_get_place_event)){
 						if ($res_place_event["Name"] != 'Waypoint')
 						{
-							$path = './../img/img_my_places/'.$username.'_'.$res_place_event["ID"].'.JPEG';
+							$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_users/'.$username.'_'.$res_place_event["ID"].'.jpg';
 							unlink($path);
 						}
 					
