@@ -5,6 +5,8 @@ require_once dirname(__FILE__).'/../init.php';
 $json = array();
 $json["id"] = "register";
 
+$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
+
 if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pic']))
 {
 	$username = $_POST['username'];
@@ -24,7 +26,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']) && i
 		$result = mysqli_query($con, $sql);
 	
 		$decoded = base64_decode($img);
-		file_put_contents('./../img/img_users/'.$username.'.JPEG', $decoded);
+		file_put_contents($relative_path.'img_users/'.$username.'.JPEG', $decoded);
 		$json["result"] = "ok";
 	}
 	mysqli_close($con);
