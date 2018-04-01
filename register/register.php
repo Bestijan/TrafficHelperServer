@@ -17,6 +17,8 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']) && i
 	
 	$res = mysqli_query($con, $sql)->fetch_row()[0];	
 	
+	$json["exists"] = $res;
+	
 	if ($res >= 1){
 		$json["result"] = "already_exists";
 	}
