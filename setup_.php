@@ -38,8 +38,8 @@ if ($con){
 	*/
 	
 	//$sql = "SET GLOBAL event_scheduler = ON";
-	
-	$sql = "SELECT * FROM markers";
+
+	$sql = "GRANT ALL PRIVILEGES ON mydb.$db_name TO '$db_user'@'$host' WITH GRANT OPTION";
 	
         $result = mysqli_query($con, $sql);
         if ($result) {
