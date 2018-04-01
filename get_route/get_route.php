@@ -14,6 +14,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['place_events']) 
 	$sql_routes = "select * from routes where username = '".$username."'";
 	$result_routes = mysqli_query($con, $sql_routes);
 
+	$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
 	
 	if ($result_routes){
 		$json["result"] = "ok";
@@ -83,7 +84,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['place_events']) 
 					$json["routes"] = mysqli_error($con);
 				}
 			}
-			$path = './../img/img_routes/'.$username.'_'.$route_id.'.JPEG';
+			$path = $relative_path.'img_routes/'.$username.'_'.$route_id.'.JPEG';
 			$jpg  = file_get_contents("$path");
 			$json["routes"][$i]["route_img"] = base64_encode($jpg);
 			
