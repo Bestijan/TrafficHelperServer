@@ -95,7 +95,7 @@ if ($con){
             img VARCHAR
             )";
 	*/
-	$sql = "DELETE FROM user";
+	$sql = "DELETE FROM users";
 	$result = mysqli_query($con, $sql);
         if ($result) {
             echo "Event set successfully";
