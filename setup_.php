@@ -29,16 +29,19 @@ if ($con){
             )";
 	*/
 	
+	/*
 	$sql = "CREATE TABLE markers (
             ID_route int(11), 
             ID_place_event int(11),
 	    PRIMARY KEY (ID_route, ID_place_event)
             )";
+	*/
 	
+	$sql = "SET GLOBAL event_scheduler = ON";
 	
         $result = mysqli_query($con, $sql);
         if ($result) {
-            echo "Table markers created successfully";
+            echo "Event scheduler set successfully";
         } else {
             echo "Error creating table: " . mysqli_error($con);
         }
