@@ -124,7 +124,7 @@ if ($con){
 	
 	$sql = "CREATE TABLE user_img (
             ID VARCHAR(50) PRIMARY KEY, 
-            img VARCHAR(50000)
+            img MEDIUMBLOB
             )";
 
 	$result = mysqli_query($con, $sql);
