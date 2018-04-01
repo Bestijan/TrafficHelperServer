@@ -41,11 +41,11 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['place_events']) 
 			}
 			*/
 			/// Selektuj sve markere koji su deo rute \\\
-		    $sql_place_events = "SELECT place_event.* 
-								 FROM place_event, routes, markers 
-								 WHERE routes.ID = markers.ID_route 
-								 AND place_event.ID = markers.ID_place_event AND routes.ID =".$row_route["ID"]."";
-			
+    $sql_place_events = "SELECT place_event.* 
+						 FROM place_event, routes, markers 
+						 WHERE routes.ID = markers.ID_route 
+						 AND place_event.ID = markers.ID_place_event AND routes.ID =".$row_route["ID"]."";
+
 			$result_place_event = mysqli_query($con, $sql_place_events);
 			
 			$waypoints = "";
@@ -61,7 +61,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['place_events']) 
 				
 			if ($place_events != "") {
 				$sql_other_markers = "SELECT * FROM(SELECT ID, Username, PE, MI, Name, Date_time, Lat, Lon,  " 
-									."ACOS(SIN(RADIANS(lat))*SIN(RADIANS(".$json["routes"][$i]['Lat_s']."))+COS(RADIANS(lat))*"
+					."ACOS(SIN(RADIANS(lat))*SIN(RADIANS(".$json["routes"][$i]['Lat_s']."))+COS(RADIANS(lat))*"
 									."COS(RADIANS(".$json["routes"][$i]['Lat_s']."))*COS(RADIANS(lon)-"
 									."RADIANS(".$json["routes"][$i]['Lon_s'].")))*6380 " 
 									."AS distance FROM place_event "
@@ -84,7 +84,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['place_events']) 
 					$json["routes"] = mysqli_error($con);
 				}
 			}
-			$path = $relative_path.'img_routes/'.$username.'_'.$route_id.'.JPEG';
+			$path = $relative_path.'img_routes/'.$username.'_'.$route_id.'.jpg';
 			$jpg  = file_get_contents("$path");
 			$json["routes"][$i]["route_img"] = base64_encode($jpg);
 			
