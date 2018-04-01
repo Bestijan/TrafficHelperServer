@@ -12,6 +12,8 @@ if (isset($_POST) && isset($_POST['username']))
 	$json["id"] = "update_account";
 	$json["result"] = "ok";
 	
+	$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
+	
 	if (isset($_POST['new_username'])){
 		
 		$json["id"] = "update_account";
@@ -36,8 +38,8 @@ if (isset($_POST) && isset($_POST['username']))
 			$res_new_username = mysqli_query($con, $sql);
 			if ($res_new_username)
 			{
-				$old_path = './../img/img_users/'.$username.'.JPEG';
-				$new_path = './../img/img_users/'.$new_username.'.JPEG';
+				$old_path = $relative_path.'img_users/'.$username.'.jpg';
+				$new_path = $relative_path.'img_users/'.$new_username.'.jpg';
 				rename($old_path, $new_path);
 				
 				$sql = "select * from place_event where Username = '$username'";
@@ -45,8 +47,8 @@ if (isset($_POST) && isset($_POST['username']))
 				
 				if($res_get_places)
 				while ($res_places = mysqli_fetch_assoc($res_get_places)){
-					$old_path = './../img/img_my_places/'.$username.'_'.$res_places["ID"].'.JPEG';
-					$new_path = './../img/img_my_places/'.$new_username.'_'.$res_places["ID"].'.JPEG';
+					$old_path = $relative_path.'img_my_places/'.$username.'_'.$res_places["ID"].'.jpg';
+					$new_path = $relative_path.'img_my_places/'.$new_username.'_'.$res_places["ID"].'.jpg';
 					rename($old_path, $new_path);
 				}
 				else $json["result"] = mysqli_error($con);
@@ -56,8 +58,8 @@ if (isset($_POST) && isset($_POST['username']))
 				
 				if ($res_get_routes)
 				while ($res_routes = mysqli_fetch_assoc($res_get_routes)){
-					$old_path = './../img/img_routes/'.$username.'_'.$res_routes["ID"].'.JPEG';
-					$new_path = './../img/img_routes/'.$new_username.'_'.$res_routes["ID"].'.JPEG';
+					$old_path = $relative_path.'img_routes/'.$username.'_'.$res_routes["ID"].'.jpg';
+					$new_path = $relative_path.'img_routes/'.$new_username.'_'.$res_routes["ID"].'.jpg';
 					rename($old_path, $new_path);
 				}
 				else $json["result"] = mysqli_error($con);
@@ -104,16 +106,16 @@ if (isset($_POST) && isset($_POST['username']))
 		
 		$username_ = $_POST['username'];
 		
-		$path = './../img/img_users/'.$username_.'.JPEG';
+		$path = $relative_path.'img_users/'.$username_.'.jpg';
 		unlink($path);
 	
 		if (isset($_POST['new_username'])){
 			$new_username = $_POST['new_username'];
-			file_put_contents('./../img/img_users/'.$new_username.'.JPEG', $decoded);
+			file_put_contents($relative_path.'img_users/'.$new_username.'.jpg', $decoded);
 		}
 		else {
 			$username_ = $_POST['username'];
-			file_put_contents('./../img/img_users/'.$username.'.JPEG', $decoded);
+			file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
 		}
 	}
 	
