@@ -108,11 +108,7 @@ if ($con){
 	
 	$sql = "SELECT COUNT(*) FROM users"; 
 	$result = mysqli_query($con, $sql)->fetch_row()[0];
-        if ($result) {
-            echo $result;
-        } else {
-            echo $result " : " . mysqli_error($con);
-        }
+        echo $result;
 	
 	$sql = "DROP TABLE user_img"; 
 	$result = mysqli_query($con, $sql);
