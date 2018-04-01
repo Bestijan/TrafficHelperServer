@@ -12,7 +12,7 @@ if ($con){
 	    PE VARCHAR(5),
 	    MI VARCHAR(7),
 	    Name VARCHAR(100),
-	    Date_time timestamp CURRENT_TIMESTAMP,
+	    Date_time timestamp NOW(),
 	    Lat double,
 	    Lon double
             )";
