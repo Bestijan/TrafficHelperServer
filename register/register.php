@@ -26,7 +26,7 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']) && i
 		$result = mysqli_query($con, $sql);
 	
 		$decoded = base64_decode($img);
-		file_put_contents($relative_path.'img_users/'.$username.'.JPEG', $decoded);
+		file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
 		$json["result"] = "ok";
 	}
 	mysqli_close($con);
