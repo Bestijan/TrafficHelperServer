@@ -41,7 +41,7 @@ if ($con){
 
 	//$sql = "GRANT ALL PRIVILEGES ON mydb.$db_name TO '$db_user'@'$host' IDENTIFIED BY '$db_password'";
 	
-	$sql = "CREATE EVENT `delete_event` 
+	$sql = "UPDATE EVENT `delete_event` 
 		ON SCHEDULE EVERY 1 MINUTE 
 		STARTS '2018-03-30 00:00:00' 
 		ENDS '2028-11-22 00:00:00' 
