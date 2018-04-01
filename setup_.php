@@ -37,9 +37,17 @@ if ($con){
             )";
 	*/
 	
-	$sql = "SET LOCAL event_scheduler = ON";
+	//$sql = "SET LOCAL event_scheduler = ON";
 
 	//$sql = "GRANT ALL PRIVILEGES ON mydb.$db_name TO '$db_user'@'$host' IDENTIFIED BY '$db_password'";
+	
+	$sql = "CREATE EVENT `delete_event` 
+		ON SCHEDULE EVERY 6 HOUR 
+		STARTS '2018-03-30 00:00:00' 
+		ENDS '2028-11-22 00:00:00' 
+
+		ON COMPLETION NOT PRESERVE ENABLE DO 
+		DELETE from place_event WHERE PE = 'EVENT'";
 	
         $result = mysqli_query($con, $sql);
         if ($result) {
