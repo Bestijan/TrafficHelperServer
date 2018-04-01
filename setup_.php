@@ -88,16 +88,22 @@ if ($con){
 	
 	file_put_contents($path.'1.jpg', $decoded);
 	*/
-	
+	$sql = "DROP TABLE 'user_img'"; 
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "DROP successfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
 	
 	$sql = "CREATE TABLE user_img (
-            ID int(11) PRIMARY KEY, 
+            ID VARCHAR(50) PRIMARY KEY, 
             img VARCHAR(50000)
             )";
 
 	$result = mysqli_query($con, $sql);
         if ($result) {
-            echo "Event set successfully";
+            echo "\nCREATE successfully";
         } else {
             echo "Error : " . mysqli_error($con);
         }
