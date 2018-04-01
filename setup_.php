@@ -66,7 +66,7 @@ if ($con){
             echo "Error : " . mysqli_error($con);
         }
 	*/
-	
+	/*
 	$img = "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
 		CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU
 		FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAPSAlgDASIA
@@ -87,6 +87,22 @@ if ($con){
 	$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/opt/app-root/data/';
 	
 	file_put_contents($path.'1.jpg', $decoded);
+	*/
+	
+	/*
+	$sql = "CREATE TABLE user_img (
+            ID int(11) PRIMARY KEY, 
+            img VARCHAR
+            )";
+	*/
+	$sql = "DELETE FROM user";
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "Event set successfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
 }
 else echo "Connection failed";
 
