@@ -32,14 +32,21 @@ if (isset($_POST) && isset($_POST['username']))
 
 				if ($res_get_place_event){
 					while ($res_routes = mysqli_fetch_assoc($res_get_routes)){
-						$path = $relative_path.'img_routes/'.$username.'_'.$res_routes["ID"].'.jpg';
-						unlink($path);
-
+						//$path = $relative_path.'img_routes/'.$username.'_'.$res_routes["ID"].'.jpg';
+						//unlink($path);
+						
+						$ID = $username.'_'.$res_routes["ID"];
+						$sql = "delete from route_img where ID = '".$ID."'";	
+						$result = mysqli_query($con, $sql);
+						
 						while ($res_place_event = mysqli_fetch_assoc($res_get_place_event)){
 							if ($res_place_event["Name"] != 'Waypoint')
 							{
-								$path = $relative_path.'img_my_places/'.$username.'_'.$res_place_event["ID"].'.jpg';
-								unlink($path);
+								//$path = $relative_path.'img_my_places/'.$username.'_'.$res_place_event["ID"].'.jpg';
+								//unlink($path);
+								$ID = $username.'_'.$res_place_event["ID"];
+								$sql = "delete from route_img where ID = '".$ID."'";	
+								$result = mysqli_query($con, $sql);
 							}
 
 							$sql = "delete from markers where ID_route = '".$res_routes["ID"]."' AND ID_place_event = '".$res_place_event["ID"]."'";	
