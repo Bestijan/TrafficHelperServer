@@ -13,7 +13,7 @@ if (isset($_POST) && isset($_POST['id']) && isset($_POST['username']))
 	
 	$result = mysqli_query($con, $sql);
 
-	$path = './../img/img_my_places/'.$username.'_'.$id.'.JPEG';
+	$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_users/'.$username.'_'.$id.'.jpg';
 	unlink($path);
 
 	if ($result){	
