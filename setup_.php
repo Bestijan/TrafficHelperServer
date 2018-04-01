@@ -111,7 +111,7 @@ if ($con){
         if ($result) {
             echo $result;
         } else {
-            echo "Error : " . mysqli_error($con);
+            echo $result " : " . mysqli_error($con);
         }
 	
 	$sql = "DROP TABLE user_img"; 
