@@ -26,7 +26,7 @@ if (isset($_POST) && isset($_POST['username'])){
 		
 		while ($res = mysqli_fetch_assoc($result_my_places)){
 			$json["my_places"][$i] = $res;
-			$path = $relative_path.'img_my_places/'.$username.'_'.$res["ID"].'.JPEG';
+			$path = $relative_path.'img_my_places/'.$username.'_'.$res["ID"].'.jpg';
 			$jpg = file_get_contents("$path");
 			$json["my_places"][$i]["my_place_img"] = base64_encode($jpg);
 			$i = $i + 1;
@@ -38,8 +38,7 @@ if (isset($_POST) && isset($_POST['username'])){
 		
 		foreach($files as $file){
 			$path = $relative_path.'img_my_places/'.$file;
-			unlink($
-			      );
+			unlink($path);
 		}
 		
 		$json['files'] = $files;
