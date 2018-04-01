@@ -20,10 +20,17 @@ if (isset($_POST) && isset($_POST['username']) && isset($_POST['password']))
 		$sql = "select img from user_img where username = '$username'";
 		//$jpg  = file_get_contents("$path");
 			
-		$jpg = mysqli_query($con, $sql)->fetch_row()[0];
+		$result = mysqli_query($con, $sql);
 		
-		$json["pic"] = $jpg;
-		$json["result"] = "ok";
+		if ($result)
+		{
+			$jpg = mysqli_query($con, $sql)->fetch_row()[0];
+			$json["pic"] = $jpg;
+			$json["result"] = "ok";
+		}
+		else {
+			$json["result"] = mysqli_error($con);
+		}
 	}
 	else{
 		$json["result"] = "does_not_exists";
