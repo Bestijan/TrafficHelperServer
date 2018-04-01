@@ -3,6 +3,7 @@
 require_once dirname(__FILE__).'/../init.php';
 
 $json = array();
+$json["result"] = "ok";
 
 if (isset($_POST) && isset($_POST['username'])
 	&& isset($_POST['mi']) && isset($_POST['pe']) 
@@ -16,7 +17,7 @@ if (isset($_POST) && isset($_POST['username'])
 	$lon = $_POST['lon'];
 	$mi = $_POST['mi'];
 	
-	$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
+	//$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
 	
 	if ($name == 'Waypoint')
 		$json["id"] = "upload_waypoint";
@@ -39,8 +40,11 @@ if (isset($_POST) && isset($_POST['username'])
 	$place_id = mysqli_fetch_row($get_place_event)[0];																					  
 											
 	if (isset($_POST['pic'])){
-		$decoded = base64_decode($_POST['pic']);
-		file_put_contents($relative_path.'img_my_places/'.$username.'_'.$place_id.'.jpg', $decoded);
+		
+		$ID = $username.'_'.$place_id;
+		$sql = "insert into place_event_img (ID, img) values ('".$ID."', '".$_POST['pic']."')";
+		if (!mysqli_query($con, $sql))
+			$json["result"] = mysqli_error($con);
 	}
 											
 	$result = mysqli_query($con, $sql);
