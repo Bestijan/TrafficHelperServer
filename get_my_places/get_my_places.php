@@ -10,6 +10,8 @@ if (isset($_POST) && isset($_POST['username'])){
 	$username = $_POST['username'];
 	$waypoint = 'Waypoint';
 	
+	$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
+	
 	$sql_my_places = "select * from place_event where Username = '$username' AND Name <> '$waypoint'";
 	
 	$result_my_places = mysqli_query($con, $sql_my_places);
@@ -18,13 +20,13 @@ if (isset($_POST) && isset($_POST['username'])){
 		$json["result"] = "ok";
 		
 		$i = 0;
-		$files = scandir('./../img/img_my_places/');
+		$files = scandir($relative_path.'img_my_places/');
 		unset($files[0]);
 		unset($files[1]);
 		
 		while ($res = mysqli_fetch_assoc($result_my_places)){
 			$json["my_places"][$i] = $res;
-			$path = './../img/img_my_places/'.$username.'_'.$res["ID"].'.JPEG';
+			$path = $relative_path.'img_my_places/'.$username.'_'.$res["ID"].'.JPEG';
 			$jpg = file_get_contents("$path");
 			$json["my_places"][$i]["my_place_img"] = base64_encode($jpg);
 			$i = $i + 1;
@@ -35,8 +37,9 @@ if (isset($_POST) && isset($_POST['username'])){
 		}
 		
 		foreach($files as $file){
-			$path = './../img/img_my_places/'.$file;
-			unlink($path);
+			$path = $relative_path.'img_my_places/'.$file;
+			unlink($
+			      );
 		}
 		
 		$json['files'] = $files;
