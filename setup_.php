@@ -92,7 +92,7 @@ if ($con){
 	
 	$sql = "CREATE TABLE user_img (
             ID int(11) PRIMARY KEY, 
-            img VARCHAR
+            img VARCHAR(50000)
             )";
 
 	$result = mysqli_query($con, $sql);
