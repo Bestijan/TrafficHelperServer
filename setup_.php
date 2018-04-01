@@ -130,6 +130,29 @@ if ($con){
             echo "Error : " . mysqli_error($con);
         }
 	
+	$sql = "CREATE TABLE routes_img (
+            ID VARCHAR(50) PRIMARY KEY, 
+            img MEDIUMBLOB
+            )";
+
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "\nCREATE route_img successfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
+	$sql = "CREATE TABLE place_event_img (
+            ID VARCHAR(50) PRIMARY KEY, 
+            img MEDIUMBLOB
+            )";
+
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "\nCREATE place_event_img successfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
 	
 	/*
 	$sql = "DELETE FROM users";
