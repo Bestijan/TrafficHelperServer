@@ -88,10 +88,36 @@ if ($con){
 	
 	file_put_contents($path.'1.jpg', $decoded);
 	*/
-	$sql = "DROP TABLE 'user_img'"; 
+	
+	$sql = "SELECT COUNT(*) FROM users"; 
+	$result = mysqli_query($con, $sql)->fetch_row()[0];	
+        if ($result) {
+            echo $result;
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
+	
+	$sql = "DELETE FROM users"; 
 	$result = mysqli_query($con, $sql);
         if ($result) {
-            echo "DROP successfully";
+            echo "\nDELETE successfully\n";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
+	$sql = "SELECT COUNT(*) FROM users"; 
+	$result = mysqli_query($con, $sql)->fetch_row()[0];
+        if ($result) {
+            echo $result;
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
+	$sql = "DROP TABLE user_img"; 
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "\nDROP successfully";
         } else {
             echo "Error : " . mysqli_error($con);
         }
