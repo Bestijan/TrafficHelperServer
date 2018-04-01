@@ -6,9 +6,15 @@ $db_name = getenv('name');
 
 $con = mysqli_connect($host, $db_user, $db_password, $db_name);
 if ($con){
-	$sql = "CREATE TABLE users (
-            username VARCHAR(50) PRIMARY KEY, 
-            password VARCHAR(30) NOT NULL
+	$sql = "CREATE TABLE place_event (
+            ID int(11) PRIMARY KEY AUTO_INCREMENT, 
+            Username VARCHAR(50) NOT NULL,
+	    PE VARCHAR(5),
+	    MI VARCHAR(7),
+	    Name VARCHAR(100),
+	    Date_time timestamp CURRENT_TIMESTAMP,
+	    Lat double,
+	    Lon double
             )";
 
         $result = mysqli_query($con, $sql);
