@@ -12,10 +12,12 @@
 	
 		if ($result){	
 		
-			echo "place_event <br/>";
+			echo "place_event ";
+			echo "<br/>";
 			
 			while ($row = mysqli_fetch_row($result)){
-				echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . " " . $row[4] . " " . $row[5] . " " . $row[6] . " " .$row[7] . " <br/>";
+				echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . " " . $row[4] . " " . $row[5] . " " . $row[6] . " " .$row[7];
+				each " <br/>";
 			}
 			
 			echo "<br/>";
