@@ -18,7 +18,7 @@
 		
 		if ($result){	
 			foreach ($result as $row){
-				echo $row . " ";
+				echo $row[0] . " ";
 			}
 		}
  	}
