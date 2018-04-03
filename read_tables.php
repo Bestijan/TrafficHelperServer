@@ -151,6 +151,10 @@
 			
 			echo 'Username' . " " . 'user_img';
 			
+			echo '<html>
+					<br/>
+				  </html>';
+			
 			while ($row = mysqli_fetch_row($result)){
 				echo $row[0] . " " . $row[1][0].$row[1][1].$row[1][2].$row[1][3].$row[1][4].$row[1][5].$row[1][6];
 			
