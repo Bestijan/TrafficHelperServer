@@ -37,11 +37,7 @@ if (isset($_POST) && isset($_POST['username']))
 		
 			$res_new_username = mysqli_query($con, $sql);
 			if ($res_new_username)
-			{
-				//$old_path = $relative_path.'img_users/'.$username.'.jpg';
-				//$new_path = $relative_path.'img_users/'.$new_username.'.jpg';
-				//rename($old_path, $new_path);
-				
+			{				
 				$ID = $new_username.'_'.$route_id;
 				$ID_old = $username.'_'.$route_id;
 				$sql = "update user_img set ID = '".$ID."' where ID = '".$ID_old."'";
@@ -53,9 +49,6 @@ if (isset($_POST) && isset($_POST['username']))
 				
 				if($res_get_places)
 				while ($res_places = mysqli_fetch_assoc($res_get_places)){
-					//$old_path = $relative_path.'img_my_places/'.$username.'_'.$res_places["ID"].'.jpg';
-					//$new_path = $relative_path.'img_my_places/'.$new_username.'_'.$res_places["ID"].'.jpg';
-					//rename($old_path, $new_path);
 					$ID = $new_username.'_'.$res_places["ID"];
 					$ID_old = $username.'_'.$res_places["ID"];
 					$sql = "update place_event_img set ID = '".$ID."' where ID = '".$ID_old."'";
