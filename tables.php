@@ -14,7 +14,7 @@
 			AND TABLE_SCHEMA='sampledb'";
 
 		$result = mysqli_query($con, $sql);
-		echo $result;
+		//echo $result;
 		
 		if ($result){	
 			foreach ($result as $row){
