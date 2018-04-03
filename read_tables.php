@@ -12,13 +12,13 @@
 	
 		if ($result){	
 		
-			echo "place_event" . "\r\n";
+			echo "place_event \n";
 			
 			while ($row = mysqli_fetch_row($result)){
-				echo row[0] . " " . row[1] . " " . row[2] . " " . row[3] . " " . row[4] . " " . row[5] . " " . row[6] . " " .row[7] . "\r\n";
+				echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . " " . $row[4] . " " . $row[5] . " " . $row[6] . " " .$row[7] . " \n";
 			}
 			
-			echo "\r\n";
+			echo "\n";
 		}
 		else echo "Error reading table: " . $conn->error . "\r\n" . "\r\n" . "\r\n";
 		
