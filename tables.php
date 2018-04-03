@@ -14,9 +14,10 @@
 			AND TABLE_SCHEMA='sampledb'";
 
 		$result = mysqli_query($con, $sql);
+		echo $result;
 		
 		if ($result){	
-			while ($result as $row){
+			foreach ($result as $row){
 				echo $row . " ";
 			}
 		}
