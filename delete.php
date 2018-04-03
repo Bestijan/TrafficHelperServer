@@ -71,7 +71,7 @@
 		$result = mysqli_query($con, $sql);
 
 		if ($result){			
-			echo "Delete users_img succesfully";
+			echo "Delete user_img succesfully";
 			echo '<html>
 					<br/>
 				  </html>';
