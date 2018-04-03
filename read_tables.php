@@ -156,7 +156,7 @@
 				  </html>';
 			
 			while ($row = mysqli_fetch_row($result)){
-				echo $row[0] . " " . $row[1];
+				echo $row[0] . " " . $row[1][0].$row[1][1].$row[1][2].$row[1][3].$row[1][4].$row[1][5].$row[1][6];
 			
 			echo '<html>
 					<br/>
@@ -167,7 +167,8 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { 
+			echo "Error reading table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
