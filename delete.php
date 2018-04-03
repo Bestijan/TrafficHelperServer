@@ -82,16 +82,16 @@
 				  </html>';
 		}
 		
-		$sql = "delete from routes_img";
+		$sql = "delete from route_img";
 		$result = mysqli_query($con, $sql);
 
 		if ($result){			
-			echo "Delete routes_img succesfully";
+			echo "Delete route_img succesfully";
 			echo '<html>
 					<br/>
 				  </html>';
 		} else {
-			echo "Error deleting routes_img: " . $conn->error;
+			echo "Error deleting route_img: " . $conn->error;
 			echo '<html>
 					<br/>
 				  </html>';
