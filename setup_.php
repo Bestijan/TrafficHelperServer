@@ -89,6 +89,7 @@ if ($con){
 	file_put_contents($path.'1.jpg', $decoded);
 	*/
 	
+	/*
 	$sql = "SELECT COUNT(*) FROM users"; 
 	$result = mysqli_query($con, $sql)->fetch_row()[0];	
         if ($result) {
@@ -129,8 +130,17 @@ if ($con){
         } else {
             echo "Error : " . mysqli_error($con);
         }
+	*/
 	
-	$sql = "CREATE TABLE routes_img (
+	$sql = "DROP TABLE routes_img"; 
+	$result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "\nDROP successfully";
+        } else {
+            echo "Error : " . mysqli_error($con);
+        }
+	
+	$sql = "CREATE TABLE route_img (
             ID VARCHAR(50) PRIMARY KEY, 
             img MEDIUMBLOB
             )";
@@ -141,7 +151,8 @@ if ($con){
         } else {
             echo "Error : " . mysqli_error($con);
         }
-	
+
+	/*
 	$sql = "CREATE TABLE place_event_img (
             ID VARCHAR(50) PRIMARY KEY, 
             img MEDIUMBLOB
