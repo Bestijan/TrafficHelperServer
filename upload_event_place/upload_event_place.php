@@ -30,7 +30,7 @@ if (isset($_POST) && isset($_POST['username'])
 	
 	
 	
-	if(mysqli_query($con, $sql) && $name == 'upload_event_place'){
+	if(mysqli_query($con, $sql) && $json["id"] == 'upload_event_place'){
 																					  
 		$place_id = $con->insert_id;
 		$json["ID"] = $con->insert_id;	
