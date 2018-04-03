@@ -16,9 +16,11 @@
 		$result = mysqli_query($con, $sql);
 		//echo $result;
 		
-		if ($result){	
-			foreach ($result as $row){
-				echo $row[0] . " ";
+		if ($result){
+			while ($row = mysqli_fetch_row($result)){
+				foreach ($result as $row_){
+					echo $row_ . " ";
+				}
 			}
 		}
  	}
