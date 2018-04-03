@@ -5,7 +5,7 @@
 	$db_name = getenv('name');
 	$con = mysqli_connect($host, $db_user, $db_password, $db_name);
 
-	if ($result) {
+	if ($con) {
 		
 		$sql = "select * from place_event";
 		$result = mysqli_query($con, $sql);
@@ -25,7 +25,7 @@
 		
 		
 	} else {
-		echo "Error creating table: " . $conn->error;
+		echo "Error connecting: " . $conn->error;
 	}
 	mysqli_close($con);
 ?>
