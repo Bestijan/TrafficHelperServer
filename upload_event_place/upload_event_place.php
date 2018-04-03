@@ -28,12 +28,13 @@ if (isset($_POST) && isset($_POST['username'])
 											  '".$lat."', 
 											  '".$lon."')";
 	
-	$json["ID"] = $con->insert_id;	
+	
 	
 	if(mysqli_query($con, $sql) && $name == 'upload_event_place'){
 																					  
 		$place_id = $con->insert_id;
-
+		$json["ID"] = $con->insert_id;	
+		
 		if (isset($_POST['pic'])){	
 			$ID = $username.'_'.$place_id;
 			$sql = "insert into place_event_img (ID, img) values ('".$ID."', '".$_POST['pic']."')";
