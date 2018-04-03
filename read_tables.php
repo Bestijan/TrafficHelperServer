@@ -28,8 +28,173 @@
 					<br/>
 				  </html>';
 		}
-		else echo "Error reading table: " . $conn->error . "\r\n" . "\r\n" . "\r\n";
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}
 		
+		$sql = "select * from routes";
+		$result = mysqli_query($con, $sql);
+	
+		if ($result){	
+		
+			echo "routes";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			while ($row = mysqli_fetch_row($result)){
+				echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . " " . $row[4] . " " . $row[5];
+			echo '<html>
+					<br/>
+				  </html>';
+			}
+			
+			echo '<html>
+					<br/>
+				  </html>';
+		}
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}
+		
+		$sql = "select * from markers";
+		$result = mysqli_query($con, $sql);
+	
+		if ($result){	
+		
+			echo "markers";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			while ($row = mysqli_fetch_row($result)){
+				echo $row[0] . " " . $row[1];
+			echo '<html>
+					<br/>
+				  </html>';
+			}
+			
+			echo '<html>
+					<br/>
+				  </html>';
+		}
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}
+
+		$sql = "select * from users";
+		$result = mysqli_query($con, $sql);
+		
+		if ($result){	
+		
+			echo "users";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			while ($row = mysqli_fetch_row($result)){
+				echo $row[0] . " " . $row[1];
+			echo '<html>
+					<br/>
+				  </html>';
+			}
+			
+			echo '<html>
+					<br/>
+				  </html>';
+		}
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}
+		
+		$sql = "select * from user_img";
+		$result = mysqli_query($con, $sql);
+		
+		if ($result){	
+		
+			echo "user_img ";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			while ($row = mysqli_fetch_row($result)){
+				echo $row[0] . " " . $row[1];
+			echo '<html>
+					<br/>
+				  </html>';
+			}
+			
+			echo '<html>
+					<br/>
+				  </html>';
+		}
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}		
+		
+		$sql = "select * from routes_img";
+		$result = mysqli_query($con, $sql);
+		
+		if ($result){	
+		
+			echo "routes_img";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			while ($row = mysqli_fetch_row($result)){
+				echo $row[0] . " " . $row[1];
+			echo '<html>
+					<br/>
+				  </html>';
+			}
+			
+			echo '<html>
+					<br/>
+				  </html>';
+		}
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}		
+		
+		$sql = "select * from place_event_img";
+		$result = mysqli_query($con, $sql);
+		
+		if ($result){	
+		
+			echo "place_event_img";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			while ($row = mysqli_fetch_row($result)){
+				echo $row[0] . " " . $row[1];
+			echo '<html>
+					<br/>
+				  </html>';
+			}
+			
+			echo '<html>
+					<br/>
+				  </html>';
+		}
+		else { echo "Error reading table: " . $conn->error;
+					echo '<html>
+					<br/>
+				  </html>';
+		}			
 		
 		
 	} else {
