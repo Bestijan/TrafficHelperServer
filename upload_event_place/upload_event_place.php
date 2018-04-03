@@ -17,8 +17,6 @@ if (isset($_POST) && isset($_POST['username'])
 	$lon = $_POST['lon'];
 	$mi = $_POST['mi'];
 	
-	//$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
-	
 	if ($name == 'Waypoint')
 		$json["id"] = "upload_waypoint";
 	else $json["id"] = "upload_event_place";
@@ -29,38 +27,17 @@ if (isset($_POST) && isset($_POST['username'])
 											  '".$name."',																					  
 											  '".$lat."', 
 											  '".$lon."')";
-	mysqli_query($con, $sql);
+	if(mysqli_query($con, $sql) && $name == 'upload_event_place'){
+		$json["ID"] = $con->insert_id;																					  
 
-	$json["ID"] = $con->insert_id;
-	
-	$sql = "select max(id) from place_event";
-	
-	$get_place_event = mysqli_query($con, $sql);
-	
-	$place_id = mysqli_fetch_row($get_place_event)[0];																					  
-											
-	if (isset($_POST['pic'])){
-		
-		$ID = $username.'_'.$place_id;
-		$sql = "insert into place_event_img (ID, img) values ('".$ID."', '".$_POST['pic']."')";
-		if (!mysqli_query($con, $sql))
-			$json["result"] = mysqli_error($con);
-	}
-											
-	$result = mysqli_query($con, $sql);
-	
-	if ($result){	
-		$json["result"] = "ok";
-		$sql = "SELECT AUTO_INCREMENT
-						FROM  INFORMATION_SCHEMA.TABLES
-						WHERE TABLE_SCHEMA = 'fcm_info'
-						AND   TABLE_NAME = 'place_event'";
-						
-		//$json["ID"] = $conn->insert_id;
-		
-	}
-	else {
-		$json["result"] = mysqli_error($con);
+		$place_id = $con->insert_id;
+
+		if (isset($_POST['pic'])){	
+			$ID = $username.'_'.$place_id;
+			$sql = "insert into place_event_img (ID, img) values ('".$ID."', '".$_POST['pic']."')";
+			if (!mysqli_query($con, $sql))
+				$json["result"] = mysqli_error($con);
+		}
 	}
 	mysqli_close($con);
 }
