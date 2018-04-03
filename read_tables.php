@@ -4,7 +4,7 @@
 	$db_password = getenv('password');
 	$db_name = getenv('name');
 	$con = mysqli_connect($host, $db_user, $db_password, $db_name);
-	$result = mysqli_query($con, $sql);
+
 	if ($result) {
 		
 		$sql = "select * from place_event";
