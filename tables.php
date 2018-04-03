@@ -20,6 +20,9 @@
 			while ($row = mysqli_fetch_row($result)){
 				foreach ($row as $row_){
 					echo $row_ . " ";
+					echo '<html>
+						<br/>
+					  </html>';
 				}
 			}
 		}
