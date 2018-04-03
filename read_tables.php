@@ -17,6 +17,12 @@
 					<br/>
 				  </html>';
 			
+			echo 'ID' . " " . 'Username' . " " . 'PE' . " " . 'MI' . " " . 'Name' . " " . 'Date_time' . " " . 'Lat' . " " .'Lon';
+		
+			echo '<html>
+					<br/>
+				  </html>';
+			
 			while ($row = mysqli_fetch_row($result)){
 				echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . " " . $row[4] . " " . $row[5] . " " . $row[6] . " " .$row[7];
 			echo '<html>
@@ -43,6 +49,12 @@
 			echo '<html>
 					<br/>
 				  </html>';
+				  
+			echo 'ID' . " " . 'Username' . " " . 'Lat_s' . " " . 'Lon_s' . " " . 'Lat_d' . " " . 'Lon_d';
+			
+			echo '<html>
+					<br/>
+				  </html>';		
 			
 			while ($row = mysqli_fetch_row($result)){
 				echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . " " . $row[4] . " " . $row[5];
@@ -71,6 +83,12 @@
 					<br/>
 				  </html>';
 			
+			echo 'ID_route' . " " . 'ID_place_event';
+		
+			echo '<html>
+					<br/>
+				  </html>';
+
 			while ($row = mysqli_fetch_row($result)){
 				echo $row[0] . " " . $row[1];
 			echo '<html>
@@ -94,6 +112,12 @@
 		if ($result){	
 		
 			echo "users";
+			echo '<html>
+					<br/>
+				  </html>';
+			
+			echo 'User' . " " . 'Password';
+			
 			echo '<html>
 					<br/>
 				  </html>';
@@ -125,8 +149,11 @@
 					<br/>
 				  </html>';
 			
+			echo 'Username' . " " . 'user_img';
+			
 			while ($row = mysqli_fetch_row($result)){
-				echo $row[0] . " " . $row[1];
+				echo $row[0] . " " . $row[1][0].$row[1][1].$row[1][2].$row[1][3].$row[1][4].$row[1][5].$row[1][6];
+			
 			echo '<html>
 					<br/>
 				  </html>';
@@ -152,8 +179,14 @@
 					<br/>
 				  </html>';
 			
+			echo 'Username' . " " . 'routes_img';
+			
+			echo '<html>
+					<br/>
+				  </html>';
+			
 			while ($row = mysqli_fetch_row($result)){
-				echo $row[0] . " " . $row[1];
+				echo $row[0] . " " . $row[1][0].$row[1][1].$row[1][2].$row[1][3].$row[1][4].$row[1][5].$row[1][6];
 			echo '<html>
 					<br/>
 				  </html>';
@@ -179,8 +212,14 @@
 					<br/>
 				  </html>';
 			
+			echo 'Username' . " " . 'place_event_img';
+			
+			echo '<html>
+					<br/>
+				  </html>';
+			
 			while ($row = mysqli_fetch_row($result)){
-				echo $row[0] . " " . $row[1];
+				echo $row[0] . " " . $row[1][0].$row[1][1].$row[1][2].$row[1][3].$row[1][4].$row[1][5].$row[1][6].;
 			echo '<html>
 					<br/>
 				  </html>';
