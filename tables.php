@@ -18,7 +18,7 @@
 		
 		if ($result){
 			while ($row = mysqli_fetch_row($result)){
-				foreach ($result as $row_){
+				foreach ($row as $row_){
 					echo $row_ . " ";
 				}
 			}
