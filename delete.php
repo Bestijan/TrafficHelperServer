@@ -67,7 +67,7 @@
 				  </html>';
 		}
 		
-		$sql = "delete from users_img";
+		$sql = "delete from user_img";
 		$result = mysqli_query($con, $sql);
 
 		if ($result){			
@@ -76,7 +76,7 @@
 					<br/>
 				  </html>';
 		} else {
-			echo "Error deleting users_img: " . $conn->error;
+			echo "Error deleting user_img: " . $conn->error;
 			echo '<html>
 					<br/>
 				  </html>';
