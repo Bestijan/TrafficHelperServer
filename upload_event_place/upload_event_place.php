@@ -28,7 +28,7 @@ if (isset($_POST) && isset($_POST['username'])
 											  '".$lat."', 
 											  '".$lon."')";
 	
-	if(mysqli_query($con, $sql))){ 
+	if(mysqli_query($con, $sql)){ 
 		$json["ID"] = $con->insert_id;	
 		
 		if ($json["id"] == 'upload_event_place'){																		  
