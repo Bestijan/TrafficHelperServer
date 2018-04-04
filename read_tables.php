@@ -177,7 +177,7 @@
 				  </html>';
 		}		
 		
-		$sql = "select * from routes_img";
+		$sql = "select * from route_img";
 		$result = mysqli_query($con, $sql);
 		
 		if ($result){	
