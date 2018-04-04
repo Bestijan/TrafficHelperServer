@@ -28,18 +28,18 @@ if (isset($_POST) && isset($_POST['username'])
 											  '".$lat."', 
 											  '".$lon."')";
 	
-	
-	$json["ID"] = $con->insert_id;	
-	
-	if(mysqli_query($con, $sql) && $json["id"] == 'upload_event_place'){
-																					  
-		$place_id = $con->insert_id;
+	if(mysqli_query($con, $sql))){ 
+		$json["ID"] = $con->insert_id;	
 		
-		if (isset($_POST['pic'])){	
-			$ID = $username.'_'.$place_id;
-			$sql = "insert into place_event_img (ID, img) values ('".$ID."', '".$_POST['pic']."')";
-			if (!mysqli_query($con, $sql))
-				$json["result"] = mysqli_error($con);
+		if ($json["id"] == 'upload_event_place'){																		  
+			$place_id = $con->insert_id;
+		
+			if (isset($_POST['pic'])){	
+				$ID = $username.'_'.$place_id;
+				$sql = "insert into place_event_img (ID, img) values ('".$ID."', '".$_POST['pic']."')";
+				if (!mysqli_query($con, $sql))
+					$json["result"] = mysqli_error($con);
+			}
 		}
 	}
 	mysqli_close($con);
