@@ -34,7 +34,7 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { echo "Error reading table place_event: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
@@ -67,7 +67,7 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { echo "Error reading routes table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
@@ -100,7 +100,7 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { echo "Error reading markers table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
@@ -133,7 +133,7 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { echo "Error reading users table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
@@ -171,7 +171,7 @@
 				  </html>';
 		}
 		else { 
-			echo "Error reading table_______: " . $conn->error;
+			echo "Error reading user_img table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
@@ -204,7 +204,7 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { echo "Error reading route_img table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
@@ -237,7 +237,7 @@
 					<br/>
 				  </html>';
 		}
-		else { echo "Error reading table: " . $conn->error;
+		else { echo "Error reading place_event table: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
