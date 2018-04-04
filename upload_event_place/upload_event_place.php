@@ -42,6 +42,7 @@ if (isset($_POST) && isset($_POST['username'])
 			}
 		}
 	}
+	else $json["result"] = mysqli_error($con);
 	mysqli_close($con);
 }
 else {
