@@ -182,7 +182,7 @@
 		
 		if ($result){	
 		
-			echo "routes_img";
+			echo "route_img";
 			echo '<html>
 					<br/>
 				  </html>';
