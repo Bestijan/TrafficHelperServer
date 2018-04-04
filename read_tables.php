@@ -141,7 +141,10 @@
 		
 		$sql = "select * from user_img";
 		$result = mysqli_query($con, $sql);
-		
+		echo "RESULT" . "    " . $result;
+		echo '<html>
+			<br/>
+		  </html>';
 		if ($result){	
 		
 			echo "user_img ";
