@@ -171,7 +171,7 @@
 				  </html>';
 		}
 		else { 
-			echo "Error reading table: " . $conn->error;
+			echo "Error reading table_______: " . $conn->error;
 					echo '<html>
 					<br/>
 				  </html>';
