@@ -12,8 +12,6 @@ if (isset($_POST) && isset($_POST['username']))
 	$json["id"] = "update_account";
 	$json["result"] = "ok";
 	
-	//$relative_path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/';
-	
 	if (isset($_POST['new_username'])){
 		
 		$json["id"] = "update_account";
@@ -38,8 +36,8 @@ if (isset($_POST) && isset($_POST['username']))
 			$res_new_username = mysqli_query($con, $sql);
 			if ($res_new_username)
 			{				
-				$ID = $new_username.'_'.$route_id;
-				$ID_old = $username.'_'.$route_id;
+				$ID = $new_username;
+				$ID_old = $username;
 				$sql = "update user_img set ID = '".$ID."' where ID = '".$ID_old."'";
 				if (!mysqli_query($con, $sql))
 					$json["result"] = mysqli_error($con);
@@ -62,10 +60,6 @@ if (isset($_POST) && isset($_POST['username']))
 				
 				if ($res_get_routes)
 				while ($res_routes = mysqli_fetch_assoc($res_get_routes)){
-					//$old_path = $relative_path.'img_routes/'.$username.'_'.$res_routes["ID"].'.jpg';
-					//$new_path = $relative_path.'img_routes/'.$new_username.'_'.$res_routes["ID"].'.jpg';
-					//rename($old_path, $new_path);
-					
 					$ID = $new_username.'_'.$res_routes["ID"];
 					$ID_old = $username.'_'.$res_routes["ID"];
 					$sql = "update route_img set ID = '".$ID."' where ID = '".$ID_old."'";
@@ -115,9 +109,6 @@ if (isset($_POST) && isset($_POST['username']))
 		$decoded = base64_decode($img);
 		
 		$username_ = $_POST['username'];
-		
-		//$path = $relative_path.'img_users/'.$username_.'.jpg';
-		//unlink($path);
 	
 		if (isset($_POST['new_username'])){
 			$sql = "update user_img set ID = '".$_POST['new_username']."', img = ID = '".$_POST['pic']."' where ID = '".$_POST['username']."'";
@@ -125,8 +116,6 @@ if (isset($_POST) && isset($_POST['username']))
 				$json["result"] = mysqli_error($con);
 		}
 		else {
-			//$username_ = $_POST['username'];
-			//file_put_contents($relative_path.'img_users/'.$username.'.jpg', $decoded);
 			$sql = "update user_img set img = '".$_POST['pic']."' where ID = '".$_POST['username']."'";
 			if (!mysqli_query($con, $sql))
 				$json["result"] = mysqli_error($con);
