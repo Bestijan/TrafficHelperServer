@@ -15,7 +15,7 @@ if (isset($_POST) && isset($_POST['id']) && isset($_POST['username']))
 
 	//$path = 'http://traffic-helper-traffic-helper-server.7e14.starter-us-west-2.openshiftapps.com/img/img_my_places/'.$username.'_'.$id.'.jpg';
 	//unlink($path);
-	if ($result)
+	if ($result) {
 		$ID = $username.'_'.$id;
 		$sql = "delete from place_event_img where ID = '".$ID."'";	
 		$result = mysqli_query($con, $sql);
